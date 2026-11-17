@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A draft culinary CV and portfolio for Andrei Tatulashvili.">
+  <meta name="theme-color" content="#d8ebdf">
+  <title>Andrei Tatulashvili | Fine-dining chef</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --mint: #d8ebdf;
+      --paper: #f5f6ee;
+      --ink: #172a22;
+      --muted: #485e51;
+      --line: #a6bdb0;
+      --forest: #162b23;
+      --light: #e8f2e9;
+      --soft: #b7cbbf;
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans: "Instrument Sans", "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--mint); color: var(--ink); font: 1rem/1.55 var(--sans); }
+    h1, h2, h3, p, figure { margin: 0; }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-underline-offset: .25em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+    ::selection { color: var(--light); background: var(--forest); }
+    [id] { scroll-margin-block-start: 1.5rem; }
+
+    .wrap {
+      width: min(100% - clamp(2.5rem, 8.33vw, 9rem), 88rem);
+      margin-inline: auto;
+    }
+
+    .skip {
+      position: absolute;
+      z-index: 1;
+      inset: .75rem auto auto .75rem;
+      padding: .65rem 1rem;
+      color: var(--light);
+      background: var(--forest);
+      transform: translateY(-150%);
+    }
+
+    .skip:focus { transform: none; }
+
+    .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 5rem;
+    }
+
+    .monogram {
+      color: var(--ink);
+      font: italic 400 2.5rem/1 var(--serif);
+      letter-spacing: -.085em;
+      text-decoration: none;
+      padding-block: .35rem;
+    }
+
+    .monogram:focus-visible { outline-color: var(--ink); }
+
+    .nav {
+      display: flex;
+      gap: clamp(1rem, 3.1vw, 3rem);
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .nav a { display: block; padding-block: .6rem; font-size: .875rem; font-weight: 550; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+
+    .hero-shell { overflow: clip; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: clamp(1rem, 3.2vw, 3.75rem);
+      padding-block-start: clamp(1.4rem, 3.1vw, 3rem);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      padding-block: 2rem clamp(3.5rem, 7vw, 6rem);
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 650;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font: 400 clamp(3.9rem, 8.2vw, 8.75rem)/.86 var(--serif);
+      letter-spacing: -.035em;
+      margin-block-start: 1.05rem;
+    }
+
+    .hero h1 em { display: block; color: #294837; font-weight: 400; }
+
+    .hero-summary {
+      display: grid;
+      justify-items: start;
+      gap: 1.35rem;
+      margin-block-start: clamp(1.3rem, 3vw, 2.5rem);
+    }
+
+    .intro {
+      max-width: 32ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.42vw, 1.25rem);
+      line-height: 1.55;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.4rem;
+      min-height: 2.9rem;
+      background: var(--forest);
+      color: var(--light);
+      padding: .7rem .9rem .7rem 1rem;
+      text-decoration: none;
+      font-size: .89rem;
+      font-weight: 550;
+      transition: color .18s ease, background-color .18s ease;
+    }
+
+    .project-link:hover { background: #2a4f3e; }
+    .project-link:focus-visible { outline-color: var(--forest); }
+    .arrow { font: 1.1em/1 "Segoe UI Symbol", sans-serif; }
+    .project-link .arrow { transition: transform .25s ease; }
+    .project-link:is(:hover, :focus-visible) .arrow { transform: translate(.18rem, .18rem); }
+
+    .hero-gallery {
+      --portrait-ease: cubic-bezier(.68, 0, .24, 1);
+      position: relative;
+      isolation: isolate;
+      align-self: end;
+      min-width: 0;
+    }
+
+    .hero-gallery::before,
+    .hero-gallery::after {
+      content: "";
+      position: absolute;
+      inset: 0 -11vw 0 -10%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-gallery::before {
+      background: #a9d6c1;
+      clip-path: polygon(0 54%, 100% 11%, 100% 25%, 10% 70%);
+    }
+
+    .hero-gallery::after {
+      background: #c6e2d4;
+      inset-block-end: -.6rem;
+      clip-path: polygon(13% 78%, 100% 31%, 100% 100%, 31% 100%);
+    }
+
+    .portrait-viewport {
+      height: clamp(27rem, 44vw, 41.5rem);
+      overflow: hidden;
+      touch-action: pan-y pinch-zoom;
+      user-select: none;
+    }
+
+    .portrait-track {
+      position: relative;
+      height: 100%;
+    }
+
+    .portrait-slide {
+      --portrait-zoom: 1;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    .portrait-slide:is(.is-current, .is-leaving) { visibility: visible; }
+    .portrait-slide.is-current { z-index: 1; }
+
+    .portrait-slide img {
+      height: 100%;
+      object-fit: contain;
+      object-position: 50% bottom;
+      transform-origin: 50% 0%;
+      filter: saturate(.9) drop-shadow(1rem .85rem 1.2rem rgb(19 47 32 / 13%));
+      transform: scale(var(--portrait-zoom));
+      transition: transform 1.12s var(--portrait-ease);
+    }
+
+    .portrait-slide:not(.is-current) img { transform: scale(calc(var(--portrait-zoom) + .035)); }
+    .portrait-slide--original img { --portrait-zoom: 1.08; }
+
+    .portrait-controls[hidden] { display: none; }
+
+    .portrait-status {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .portrait-arrow {
+      position: absolute;
+      z-index: 2;
+      inset-block-start: 50%;
+      display: grid;
+      place-items: center;
+      width: clamp(3.75rem, 8vw, 7rem);
+      height: min(58%, 21rem);
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--ink);
+      font: 500 1rem/1 var(--sans);
+      opacity: 0;
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: opacity .22s ease;
+    }
+
+    .portrait-arrow--previous {
+      inset-inline-start: 0;
+      justify-items: start;
+      padding-inline-start: clamp(.7rem, 2vw, 1.85rem);
+    }
+
+    .portrait-arrow--next {
+      inset-inline-end: 0;
+      justify-items: end;
+      padding-inline-end: clamp(.7rem, 2vw, 1.85rem);
+    }
+
+    .portrait-arrow:is(:active, :focus-visible) { opacity: 1; }
+    .portrait-arrow:focus-visible { outline: 0; text-decoration: underline; text-underline-offset: .25em; }
+
+    @media (hover: hover) {
+      .portrait-arrow:hover { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-gallery { animation: gallery-arrive .85s cubic-bezier(.22, 1, .36, 1) both; }
+      .hero-copy { animation: gallery-arrive .7s cubic-bezier(.22, 1, .36, 1) both; }
+      .hero-gallery::before { animation: mint-drift 14s ease-in-out infinite; }
+      .hero-gallery::after { animation: mint-drift 19s ease-in-out infinite reverse; }
+      .hero-gallery:is(:hover, :focus-within)::before,
+      .hero-gallery:is(:hover, :focus-within)::after { animation-play-state: paused; }
+    }
+
+    @keyframes gallery-arrive {
+      from { opacity: 0; transform: translateY(1.4rem); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes mint-drift {
+      0%, 100% { translate: 0 0; }
+      25% { translate: .55rem -.28rem; }
+      50% { translate: .9rem 0; }
+      75% { translate: .55rem .28rem; }
+    }
+
+    .cv {
+      background: var(--paper);
+      padding-block: clamp(3.5rem, 6.5vw, 6.75rem);
+    }
+
+    .cv-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .88fr) minmax(0, 1fr);
+      gap: clamp(3rem, 10vw, 10rem);
+    }
+
+    h2 { font: 400 clamp(3.45rem, 6vw, 5.6rem)/.93 var(--serif); letter-spacing: -.028em; }
+
+    .profile-copy {
+      max-width: 36ch;
+      margin-block-start: 1.35rem;
+      font-size: clamp(1.05rem, 1.45vw, 1.275rem);
+      color: var(--muted);
+    }
+
+    .education {
+      max-width: 30rem;
+      padding-block-start: .9rem;
+      margin-block-start: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .education-label {
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 650;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .education h3 { margin-block: .2rem .1rem; font: 400 1.95rem/1.05 var(--serif); }
+    .education p:last-child { color: var(--muted); font-size: .92rem; }
+
+    .experience-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .625rem 1rem;
+      margin-bottom: .9rem;
+    }
+
+    .sample { font-size: .77rem; color: var(--muted); }
+    .roles { padding: 0; margin: 0; list-style: none; }
+    .roles li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: .25rem 1rem;
+      border-top: 1px solid var(--line);
+      padding-block: .7rem;
+    }
+
+    .roles li:last-child { border-bottom: 1px solid var(--line); }
+    .role { font-weight: 650; font-size: 1rem; }
+    .role-focus { font-size: .88rem; color: var(--muted); }
+
+    .work { background: var(--forest); color: var(--light); }
+    .work-content { padding-block: clamp(3.65rem, 6.4vw, 6.5rem) clamp(3rem, 5vw, 5.5rem); }
+    .work-heading {
+      padding-bottom: 1.4rem;
+      margin-bottom: clamp(1.6rem, 2.9vw, 2.85rem);
+      border-bottom: 1px solid #637b6d;
+    }
+
+    .project-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 2.2vw, 2.25rem); }
+
+    .project {
+      --project-ease: cubic-bezier(.22, 1, .36, 1);
+      --lift-ease: cubic-bezier(.22, .8, .3, 1.12);
+      --entrance-delay: 0ms;
+      --preview-overhang: clamp(.8rem, 2.1vw, 2rem);
+      --preview-rise: clamp(1.5rem, 3.3vw, 2.9rem);
+      --preview-angle: 6deg;
+      --hit-top: calc(var(--preview-rise) + 1.1rem);
+      --hit-start: .5rem;
+      --hit-end: calc(var(--preview-overhang) + 1.35rem);
+      --cue-shift: .9rem;
+      position: relative;
+    }
+
+    .project--1820 { --preview-angle: -5deg; }
+
+    .project--tba {
+      --hit-start: 2.75rem;
+      --hit-end: .9rem;
+      --cue-shift: -.9rem;
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: #284135;
+    }
+
+    .project-frame {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      transition: transform .65s var(--project-ease);
+    }
+
+    .project-frame img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .75s var(--project-ease), filter .55s ease;
+    }
+
+    .project-preview {
+      position: absolute;
+      inset: calc(-1 * var(--preview-rise)) calc(-1 * var(--preview-overhang)) auto auto;
+      width: 77%;
+      height: 110%;
+      border: 3px solid var(--mint);
+      background: var(--forest);
+      box-shadow: 0 .9rem 2rem rgb(8 21 15 / 48%);
+      object-fit: cover;
+      opacity: 0;
+      transform: translate(-1.25rem, 2.75rem) rotate(-5deg) scale(.78);
+      pointer-events: none;
+      transition: opacity .28s ease, transform .68s var(--lift-ease);
+    }
+
+    .project-preview--reserve { object-position: 50% 42%; }
+    .project-preview--1820 { object-position: 50% 60%; }
+
+    .project-cue {
+      position: absolute;
+      inset: .65rem -.3rem auto auto;
+      display: grid;
+      place-items: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border: 1px solid #779b86;
+      background: var(--forest);
+      color: var(--light);
+      overflow: hidden;
+      transition: background-color .25s ease, color .25s ease, transform .45s var(--project-ease);
+    }
+
+    .project-cue .arrow { grid-area: 1 / 1; transition: transform .45s var(--project-ease); }
+    .project-cue .arrow + .arrow { transform: translate(-1.75rem, 1.75rem); }
+
+    .project-board {
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 100%;
+      background: #bedbca;
+      color: var(--ink);
+      transition: background-color .45s ease, color .45s ease, transform .68s var(--lift-ease), box-shadow .45s ease;
+    }
+
+    .project-board::before {
+      content: "";
+      position: absolute;
+      inset: .75rem;
+      border: 1px solid #799e89;
+      transition: inset .55s var(--project-ease), border-color .45s ease;
+    }
+
+    .project-board span {
+      padding-block-end: .075em;
+      font: italic 400 clamp(3.5rem, 7vw, 7rem)/1 var(--serif);
+      letter-spacing: -.05em;
+      transition: transform .6s var(--project-ease), letter-spacing .6s var(--project-ease);
+    }
+
+    .project-type {
+      margin-block: 1rem .35rem;
+      color: var(--soft);
+      font-size: .69rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .project h3 { font: 400 clamp(2.15rem, 3.4vw, 3.35rem)/1 var(--serif); letter-spacing: -.012em; }
+    .project-copy { max-width: 35ch; margin-block-start: .6rem; color: var(--soft); font-size: .94rem; }
+
+    .project-open {
+      border: 0;
+      padding: 0;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      letter-spacing: inherit;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .project-title {
+      display: inline-block;
+      transition: transform .45s var(--project-ease), color .3s ease;
+    }
+
+    .project-open::after { content: ""; position: absolute; z-index: 1; inset: 0; }
+    .project:has(.project-open:focus-visible) { outline: 2px solid var(--mint); outline-offset: 6px; }
+    .project:has(.project-open:focus-visible) .project-open { outline: none; }
+
+    .project:is(:hover, .is-launching) { z-index: 3; }
+    .project:has(.project-open:focus-visible):not(:hover, .is-launching) { z-index: 2; }
+
+    .project:is(:hover, .is-launching, :has(.project-open:focus-visible)) {
+      .project-open::after { inset: calc(-1 * var(--hit-top)) calc(-1 * var(--hit-end)) 0 calc(-1 * var(--hit-start)); }
+      .project-frame { transform: translate(-.4rem, .45rem) scale(.97); }
+      .project-frame img { transform: scale(1.12); filter: brightness(.8); }
+      .project-preview { opacity: 1; transform: rotate(var(--preview-angle)); }
+      .project-cue { color: var(--ink); background: var(--mint); transform: translate(var(--cue-shift), -.7rem); }
+      .project-cue .arrow { transform: translate(1.75rem, -1.75rem); }
+      .project-cue .arrow + .arrow { transform: none; }
+      .project-board {
+        color: var(--light);
+        background: #315444;
+        box-shadow: 0 .9rem 2rem rgb(8 21 15 / 48%);
+        transform: translate(-.8rem, -1.55rem) rotate(-4deg) scale(1.05);
+      }
+      .project-board::before { inset: .4rem; border-color: #9bc4ae; }
+      .project-board span { transform: scale(1.19); letter-spacing: .065em; }
+      .project-title { color: #bbdfca; transform: translateX(.45rem); }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .project-motion .project {
+        transition: opacity .55s ease var(--entrance-delay), translate .8s var(--project-ease) var(--entrance-delay);
+      }
+
+      .project-motion .project:not(.is-visible, :focus-within) { opacity: 0; translate: 0 2.25rem; }
+      .project-motion .project:focus-within { transition: none; }
+    }
+
+    @media (min-width: 621px) {
+      .project:nth-child(2) { --entrance-delay: 100ms; }
+      .project:nth-child(3) { --entrance-delay: 200ms; }
+    }
+
+    .page-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      background: var(--mint);
+      transform: translateY(-101%);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .page-wipe.is-covering {
+      transform: translateY(0);
+      transition: transform 1050ms cubic-bezier(.76, 0, .24, 1);
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .page-wipe-mark {
+      width: min(52vw, 16rem);
+      height: auto;
+      max-height: min(39svh, 19.5rem);
+      object-fit: contain;
+    }
+
+    .page-wipe-mark[hidden] { display: none; }
+
+    .page-wipe.is-covering .page-wipe-mark:not([hidden]) {
+      animation: wipe-mark-arrive .46s cubic-bezier(.22, 1, .36, 1) .23s both;
+    }
+
+    @keyframes wipe-mark-arrive {
+      from { clip-path: inset(0 0 100%); transform: translateY(.4rem); }
+      to { clip-path: inset(0); transform: none; }
+    }
+
+    .project-dialog {
+      width: min(29rem, 100% - 2rem);
+      max-height: calc(100% - 2rem);
+      border: 1px solid var(--line);
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      overscroll-behavior: contain;
+    }
+
+    .project-dialog::backdrop { background: rgb(12 27 20 / 78%); }
+
+    .dialog-copy {
+      position: relative;
+      padding: 3.75rem clamp(1.5rem, 4vw, 2.5rem) 2.25rem;
+    }
+
+    .dialog-copy h2 { font-size: clamp(2.9rem, 5vw, 4.15rem); }
+    .dialog-copy p { margin-block-start: .85rem; color: var(--muted); }
+
+    .dialog-dismiss { position: absolute; z-index: 1; inset: .6rem .6rem auto auto; }
+    .dialog-dismiss button {
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 1.5rem/1 var(--sans);
+      cursor: pointer;
+    }
+
+    .dialog-dismiss button:hover { background: var(--mint); }
+    .dialog-dismiss button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .65rem 1rem;
+      border-top: 1px solid #637b6d;
+      padding-block: 1.15rem 1.45rem;
+      color: var(--soft);
+      font-size: .78rem;
+    }
+
+    .footer a { min-height: 2rem; display: inline-flex; align-items: center; gap: .5rem; }
+    .footer a:hover { color: var(--light); }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 1.45rem; }
+      .hero-copy { padding: 0; }
+      .hero h1 { font-size: clamp(3.75rem, 13.8vw, 7.6rem); }
+      .hero-gallery { width: min(100%, 38rem); justify-self: center; }
+      .portrait-viewport { height: clamp(21rem, 70vw, 36rem); }
+      .cv-layout { gap: 3rem; }
+    }
+
+    @media (max-width: 620px) {
+      .bar { min-height: 4.25rem; }
+      .hero { padding-block-start: 1.8rem; }
+      .hero h1 { margin-block-start: .85rem; }
+      .portrait-viewport { height: auto; max-height: 35rem; aspect-ratio: 4 / 5; }
+      .hero-gallery::before, .hero-gallery::after { inset-inline-end: -14vw; }
+      .cv-layout, .project-list { grid-template-columns: 1fr; }
+      .project-list { gap: 2rem; }
+      .project {
+        --preview-overhang: .3rem;
+        --preview-angle: 4deg;
+        --hit-end: clamp(.9rem, 3.45vw, 1.35rem);
+        --cue-shift: .3rem;
+      }
+      .project--1820 { --preview-angle: -4deg; }
+      .project--tba { --hit-start: var(--hit-end); --cue-shift: -.65rem; }
+      .project + .project {
+        --hit-top: calc(var(--preview-rise) - .65rem);
+        border-top: 1px solid #637b6d;
+        padding-top: 1.75rem;
+      }
+      .project-board span { font-size: clamp(4.1rem, 15vw, 6.5rem); }
+      .project:is(:hover, .is-launching, :has(.project-open:focus-visible)) .project-board {
+        transform: translate(-.2rem, -1.15rem) rotate(-3deg) scale(1.025);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .project-link,
+      .project-link .arrow,
+      .portrait-arrow,
+      .portrait-slide img,
+      .project *,
+      .project *::before,
+      .page-wipe.is-covering { transition: none; }
+      .page-wipe.is-covering .page-wipe-mark:not([hidden]) { animation: none; }
+    }
+
+    /* Local typefaces */
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/instrument-serif.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/instrument-serif-italic.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Instrument Sans";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("fonts/instrument-sans.woff2") format("woff2");
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap bar">
+    <a class="monogram" href="#top" aria-label="Andrei Tatulashvili, back to top">AT</a>
+    <nav aria-label="Main navigation">
+      <ul class="nav">
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero-shell" aria-labelledby="name">
+      <div class="wrap hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Fine-dining chef</p>
+          <h1 id="name">Andrei <em>Tatulashvili</em></h1>
+          <div class="hero-summary">
+            <p class="intro">Seasonal menus shaped by close relationships with growers and precise technique.</p>
+            <a class="project-link" href="#projects">View projects <span class="arrow" aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+
+        <div class="hero-gallery" role="group" aria-label="Portrait gallery">
+          <div class="portrait-viewport" id="portraits">
+            <div class="portrait-track">
+              <figure class="portrait-slide portrait-slide--original is-current">
+                <img src="images/hero-andrei.webp" alt="Andrei in a blue floral shirt"
+                  fetchpriority="high" draggable="false">
+              </figure>
+              <figure class="portrait-slide" aria-hidden="true">
+                <img src="images/hero-holiday.webp" alt="Andrei in a red Santa hat" decoding="async" draggable="false">
+              </figure>
+              <figure class="portrait-slide" aria-hidden="true">
+                <img src="images/hero-billy.webp" alt="Close-up of a smiling man" decoding="async" draggable="false">
+              </figure>
+            </div>
+          </div>
+          <div class="portrait-controls" hidden>
+            <span class="portrait-status" aria-live="polite" aria-atomic="true"></span>
+            <button class="portrait-arrow portrait-arrow--previous" type="button" aria-label="Previous portrait"
+              aria-controls="portraits" data-portrait-step="-1">
+              <span class="arrow" aria-hidden="true">←</span>
+            </button>
+            <button class="portrait-arrow portrait-arrow--next" type="button" aria-label="Next portrait"
+              aria-controls="portraits" data-portrait-step="1">
+              <span class="arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv" aria-label="Culinary résumé">
+      <div class="wrap cv-layout">
+        <div id="profile">
+          <h2>Profile</h2>
+          <p class="profile-copy">Menus begin with what’s in season. I work with growers to find produce at its best, then build each dish around a few ingredients and the techniques that suit them.</p>
+          <div class="education">
+            <p class="education-label">Education</p>
+            <h3>Le Cordon Bleu</h3>
+            <p>Graduated with top marks.</p>
+          </div>
+        </div>
+
+        <div id="experience">
+          <div class="experience-heading">
+            <h2>Experience</h2>
+            <p class="sample">Sample résumé entries</p>
+          </div>
+          <ul class="roles">
+            <li><span class="role">Head chef</span><span class="role-focus">Menu development</span></li>
+            <li><span class="role">Sous chef</span><span class="role-focus">Kitchen operations</span></li>
+            <li><span class="role">Chef de partie</span><span class="role-focus">Sauces and live fire</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="projects" aria-labelledby="projects-title">
+      <div class="wrap work-content">
+        <div class="work-heading">
+          <h2 id="projects-title">Selected projects</h2>
+        </div>
+        <div class="project-list">
+          <article class="project">
+            <div class="project-media">
+              <div class="project-frame">
+                <img src="images/reserve-cover.webp" alt="A chef finishes a dish at Reserve" loading="lazy" decoding="async">
+              </div>
+              <img class="project-preview project-preview--reserve" src="images/reserve-preview.webp"
+                alt="Sauce being poured over fish, scallop and potato at Reserve" aria-hidden="true" decoding="async">
+              <span class="project-cue" aria-hidden="true"><span class="arrow">↗</span><span class="arrow">↗</span></span>
+            </div>
+            <p class="project-type">Tbilisi · Live site</p>
+            <h3><a class="project-open" href="https://reservetbilisi.ge/" data-wipe="reserve"><span class="project-title">Reserve</span></a></h3>
+            <p class="project-copy">Seasonal dining at a seven-table restaurant in Tbilisi’s historic centre.</p>
+          </article>
+
+          <article class="project project--1820">
+            <div class="project-media">
+              <div class="project-frame">
+                <img src="images/1820-cover.webp" alt="A low-lit dining room with amber lights and dark wood" loading="lazy" decoding="async">
+              </div>
+              <img class="project-preview project-preview--1820" src="images/1820-preview.webp"
+                alt="Small courses arranged in a sculptural serving platter" aria-hidden="true" decoding="async">
+              <span class="project-cue" aria-hidden="true"><span class="arrow">↗</span><span class="arrow">↗</span></span>
+            </div>
+            <p class="project-type">In development</p>
+            <h3><a class="project-open" href="https://1820.ge/" data-wipe="1820"><span class="project-title">1820</span></a></h3>
+            <p class="project-copy">A first look at the interior and plating for a dining concept in development.</p>
+          </article>
+
+          <article class="project project--tba">
+            <div class="project-media" aria-hidden="true">
+              <div class="project-board"><span>TBA</span></div>
+              <span class="project-cue"><span class="arrow">↗</span><span class="arrow">↗</span></span>
+            </div>
+            <p class="project-type">Forthcoming</p>
+            <h3>
+              <button type="button" class="project-open" aria-haspopup="dialog" aria-controls="tba-project" data-wipe="tba">
+                <span class="project-title">Next project</span>
+              </button>
+            </h3>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="work">
+    <div class="wrap footer">
+      <span>Andrei Tatulashvili · Portfolio draft</span>
+      <a href="#top">Back to top <span class="arrow" aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+  <div class="page-wipe" id="page-wipe" aria-hidden="true">
+    <img class="page-wipe-mark" data-wipe-mark="reserve" src="images/reserve-transition-stencil.png" alt="" hidden>
+    <img class="page-wipe-mark" data-wipe-mark="1820" src="images/1820-transition-stencil.png" alt="" hidden>
+    <img class="page-wipe-mark" data-wipe-mark="tba" src="images/tba-transition-stencil.png" alt="" hidden>
+  </div>
+
+  <dialog class="project-dialog" id="tba-project" aria-labelledby="tba-title">
+    <div class="dialog-copy">
+      <form method="dialog" class="dialog-dismiss">
+        <button type="submit" aria-label="Close project" autofocus>×</button>
+      </form>
+      <h2 id="tba-title">To be announced</h2>
+      <p>Details will be shared when the project is ready.</p>
+    </div>
+  </dialog>
+
+  <script>
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const wipe = document.getElementById("page-wipe");
+    const wipeMarks = Array.from(wipe.querySelectorAll("[data-wipe-mark]"));
+    let wipeTimer;
+    let launchingProject;
+    let activeWipeMark;
+
+    function afterWipe(trigger, action) {
+      if (wipeTimer !== undefined) return;
+      launchingProject = trigger.closest(".project");
+      launchingProject.classList.add("is-launching");
+      activeWipeMark = wipeMarks.find(mark => mark.dataset.wipeMark === trigger.dataset.wipe);
+      if (activeWipeMark) activeWipeMark.hidden = false;
+      wipe.classList.add("is-covering");
+      wipeTimer = window.setTimeout(action, activeWipeMark ? 1350 : 1100);
+    }
+
+    function resetWipe() {
+      window.clearTimeout(wipeTimer);
+      wipeTimer = undefined;
+      launchingProject?.classList.remove("is-launching");
+      launchingProject = undefined;
+      wipe.classList.remove("is-covering");
+      if (activeWipeMark) activeWipeMark.hidden = true;
+      activeWipeMark = undefined;
+    }
+
+    for (const link of document.querySelectorAll("a.project-open")) {
+      link.addEventListener("click", (event) => {
+        const modifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+        if (event.defaultPrevented || event.button !== 0 || modifiedClick || motionPreference.matches) return;
+
+        event.preventDefault();
+        afterWipe(link, () => window.location.assign(link.href));
+      });
+    }
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) resetWipe();
+    });
+
+    const tbaDialog = document.getElementById("tba-project");
+    const tbaTrigger = document.querySelector('[aria-controls="tba-project"]');
+    tbaTrigger.addEventListener("click", () => {
+      if (motionPreference.matches) {
+        tbaDialog.showModal();
+        return;
+      }
+
+      afterWipe(tbaTrigger, () => {
+        resetWipe();
+        tbaDialog.showModal();
+      });
+    });
+
+    tbaDialog.addEventListener("click", (event) => {
+      if (event.target === tbaDialog) tbaDialog.close();
+    });
+
+    if (!motionPreference.matches && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }, { threshold: .12 });
+
+      document.documentElement.classList.add("project-motion");
+      for (const project of document.querySelectorAll(".project")) observer.observe(project);
+    }
+
+    const portraitGallery = document.querySelector(".hero-gallery");
+    const portraitViewport = document.getElementById("portraits");
+    const portraitTrack = portraitViewport.querySelector(".portrait-track");
+    const portraits = Array.from(portraitTrack.querySelectorAll(".portrait-slide"));
+    const portraitStatus = portraitGallery.querySelector(".portrait-status");
+    const portraitSteps = portraitGallery.querySelectorAll("[data-portrait-step]");
+    const portraitTiming = {
+      duration: 1000,
+      easing: getComputedStyle(portraitGallery).getPropertyValue("--portrait-ease").trim(),
+      fill: "both"
+    };
+    let activePortrait = 0;
+    let portraitHovered = false;
+    let portraitTimer;
+    let portraitSwipe;
+    let portraitMotion;
+    let queuedPortrait;
+
+    function showPortrait(step, announce = false) {
+      window.clearTimeout(portraitTimer);
+      if (portraitMotion) {
+        queuedPortrait = { step, announce };
+        return;
+      }
+
+      const previous = portraits[activePortrait];
+      activePortrait = (activePortrait + step + portraits.length) % portraits.length;
+      const current = portraits[activePortrait];
+      previous.classList.remove("is-current");
+      previous.setAttribute("aria-hidden", "true");
+      current.classList.add("is-current");
+      current.removeAttribute("aria-hidden");
+
+      if (announce) {
+        portraitStatus.textContent = `Portrait ${activePortrait + 1} of ${portraits.length}. ${current.querySelector("img").alt}.`;
+      }
+
+      if (motionPreference.matches) {
+        queuePortrait();
+        return;
+      }
+
+      previous.classList.add("is-leaving");
+      const outgoing = previous.animate(
+        [{ transform: "translateX(0)" }, { transform: `translateX(${-step * 100}%)` }],
+        portraitTiming
+      );
+      const incoming = current.animate(
+        [{ transform: `translateX(${step * 100}%)` }, { transform: "translateX(0)" }],
+        portraitTiming
+      );
+      portraitMotion = { previous, incoming, outgoing };
+      incoming.onfinish = finishPortraitMotion;
+    }
+
+    function finishPortraitMotion() {
+      if (!portraitMotion) return;
+      const { previous, incoming, outgoing } = portraitMotion;
+      portraitMotion = undefined;
+      previous.classList.remove("is-leaving");
+      incoming.cancel();
+      outgoing.cancel();
+
+      if (queuedPortrait) {
+        const { step, announce } = queuedPortrait;
+        queuedPortrait = undefined;
+        showPortrait(step, announce);
+      } else {
+        queuePortrait();
+      }
+    }
+
+    function queuePortrait() {
+      window.clearTimeout(portraitTimer);
+      if (motionPreference.matches || portraitMotion || portraitHovered || portraitSwipe || document.hidden
+        || portraitGallery.contains(document.activeElement)) return;
+      portraitTimer = window.setTimeout(() => showPortrait(1), 4700);
+    }
+
+    for (const button of portraitSteps) {
+      button.addEventListener("click", () => showPortrait(Number(button.dataset.portraitStep), true));
+    }
+
+    portraitGallery.addEventListener("keydown", (event) => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      showPortrait(event.key === "ArrowLeft" ? -1 : 1, true);
+    });
+
+    portraitViewport.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "touch" || !event.isPrimary) return;
+      portraitSwipe = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      queuePortrait();
+    });
+
+    function finishPortraitSwipe(event) {
+      if (!portraitSwipe || event.pointerId !== portraitSwipe.id) return;
+      const x = event.clientX - portraitSwipe.x;
+      const y = event.clientY - portraitSwipe.y;
+      portraitSwipe = undefined;
+
+      if (event.type === "pointerup" && Math.abs(x) >= 42 && Math.abs(x) > Math.abs(y) * 1.2) {
+        showPortrait(x < 0 ? 1 : -1, true);
+      } else {
+        queuePortrait();
+      }
+    }
+
+    portraitViewport.addEventListener("pointerup", finishPortraitSwipe);
+    portraitViewport.addEventListener("pointercancel", finishPortraitSwipe);
+
+    portraitGallery.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch") return;
+      portraitHovered = true;
+      queuePortrait();
+    });
+
+    portraitGallery.addEventListener("pointerleave", () => {
+      portraitHovered = false;
+      queuePortrait();
+    });
+
+    portraitGallery.addEventListener("focusin", queuePortrait);
+    portraitGallery.addEventListener("focusout", () => window.requestAnimationFrame(queuePortrait));
+
+    document.addEventListener("visibilitychange", queuePortrait);
+
+    motionPreference.addEventListener("change", (event) => {
+      if (event.matches) finishPortraitMotion();
+      queuePortrait();
+    });
+
+    portraitGallery.querySelector(".portrait-controls").hidden = false;
+    queuePortrait();
+  </script>
+
+  <!-- Image credits
+  Hero photographs supplied by the user. Project photographs are from the Reserve and 1820 project folders.
+  images/reserve-transition-cat.png was made from the supplied cat-and-explosion photo with ImageGen.
+  Create a highly detailed two-tone engraving for a website transition from the attached photograph. The artwork must include BOTH the exact front-facing tabby cat AND the enormous explosion behind it. Preserve the distinctive wide dark eyes, ear shapes, nose, whiskers, face markings and chest of the original cat. Behind the cat, retain a dramatically wide fireball with clearly recognizable light tongues of flame, billowing lobes and rolling blast-cloud detail, rising higher than its ears and spreading to both sides. Compose the cat and fireball as ONE freestanding cutout. Make the outer contour follow the fireball's organic lobes, then the cat's sides and the tapered lower chest, leaving empty space around the entire combined silhouette. Remove only the surrounding sky, ground, water, and rectangular photo edges. The cat is in the foreground, distinct from the explosion, with crisp light cutaways along the ears and whiskers. Print with one dark ink of pure black and fully transparent knockouts only. Use dense fine engraving lines, hatching and stipple to create highly realistic detail in the tabby's fur and the blast, with bright transparent flame channels and contrasting dense ink in the cloud shadows. No gray ink, gradients, frame, text, externally added shadow, or opaque backdrop. Save as a PNG with true transparent alpha. Centered balanced emblem with the entire combined silhouette visible and clear at 300 pixels tall.
+  images/reserve-transition-stencil.png was made with ImageGen using the supplied bold stencil as a reference.
+  Use the attached two-tone portrait of a tabby cat in front of an explosion as the exact visual reference. Produce a transparent cutout of that same bold screen-print emblem, extremely faithful to its composition and mark-making. Keep the frontal tabby, alert ears, enormous bright-eyelighted eyes, broad whiskers, jagged neck stripes and large rounded explosion billowing high behind the ears. Use the reference's thick graphic shapes, broad open channels within the blast, simple large clear areas of negative space and restrained stipple just on the cheeks and forehead. The head and upper chest occupy the lower two thirds. Preserve a tall, centered composition with both whisker fans and the entire organic outside contour of the smoke and fur contained within the frame. Taper the scattered ground lines into the surrounding negative space. Remove the mint background, surrounding sky and any rectangular photo edge. Render everything in a single solid black ink plus real transparent space; the knockout highlights and background must have true alpha. Use the bold illustrated stencil detailing of this attachment. No gradients, fine photographic engraving, text, border, outer shadow, gray ink or opaque fill behind the cat. The whole cat and explosion should read as one clean compact standalone sticker-like silhouette with no sticker outline.
+  images/1820-transition-stencil.png was made with ImageGen from the first supplied cat photograph.
+  Turn this exact supplied low-resolution photo of a compact gray-and-white tabby cat into a recognizable one-ink screen-print cutout for a small website transition. Retain the slightly overhead viewpoint, close-together dark eyes, little nose, white central muzzle and cheeks, gray cap and ears, dark patch beneath the chin, and the actual squat pose and little paws visible in the reference. Use broad sculpted ink shapes, open knockout highlights, readable whiskers and restrained short fur marks, in the spirit of a two-tone hand-printed stencil. Preserve the funny compact proportions and expression. Isolate the visible cat only, removing the tiled floor and everything around it. Do not invent accessories, another pose, extra limbs, text, a frame, a shadow or a backdrop. All art must be solid pure black ink or fully transparent, including the clear channels, light fur and surrounding space. Real PNG alpha, generous breathing room around the full outline, no gradients or gray inks.
+  images/tba-transition-stencil.png was made with ImageGen from the supplied hash-brown cat photograph.
+  Convert the supplied hash-brown-cat meme into a faithful bold one-ink screen-print cutout for a website transition. Preserve the original joke and arrangement: the very broad, squashed tabby face with sideways pointy ears, small intense dark eyes, cheeks, and nose, emerging from the top of the crumpled hash-brown sleeve. Keep the recognizable package proportions, its prominent arches emblem and the existing English label HASH BROWN, with the letterforms retained from the photo; keep the small Chinese label as in the source only where readable. Use big stencil shapes, sharp negative-space cutaways and a few fine fur lines and paper creases so it reads clearly around 250 pixels wide. Keep the complete combined cat-and-wrapper silhouette with open space around the edges, removing the white photo backdrop. Only pure black ink and genuinely transparent areas. Highlights, the light parts of the wrapper and the spaces around the shape are transparent, not white paint. No frame, gradients, gray ink, new text, added props, effects or shadows. Real alpha PNG.
+  The following hero assets use transparent cutouts made with the built-in ImageGen tool.
+  images/hero-andrei.webp
+  Background removal for an existing photographic portrait, using the supplied image as the exact edit target. Isolate the central person in the blue floral shirt and jeans, including his hair, white gloves and the short stretch of the wooden handle he is holding between his two hands. Preserve his exact face and expression, age, proportions, pose, haircut, clothing, low-light flash and red rim light, and the photograph's authentic texture. Remove the car, windows, backdrop, other people's hands and clothes, and all other surrounding elements. Do not generate a different photograph, retouch his face, change styling, fill in his legs below the original crop, or add a shadow, text, outline, or matte. Keep the entire subject visible down to the photograph's existing bottom crop. Deliver a tight photographic cutout as a PNG with real transparent alpha outside the subject and clean hair edges.
+  images/hero-holiday.webp
+  Create a transparent-background close-up cutout of the face, hair, and red Santa hat of the main person on the right in the attached photograph. Preserve the exact face, expression, position and camera appearance. Frame from the top of the Santa hat to immediately below the shoulders. Keep the focus tightly on that individual. Every surrounding object, the other person, and anything held in the hands is outside the intended crop and should be absent from the output. Keep the original photographic texture and use a real alpha channel outside the head, hat, and shoulders. No background, text, outline, added body parts, or new pose.
+  images/hero-billy.webp
+  Precise background removal on this exact supplied close-up portrait. Isolate the smiling man's head, hair, neck and visible shoulders, retaining his exact face, expression, pose, original tight crop, skin texture and warm lighting. Remove all the beige backdrop. Preserve the original body cutoff at the bottom of the image without inventing any additional anatomy. The result must look like the same real photograph with the background masked out, not a recreated or retouched portrait. No new clothing, shadows, text, outlines, white fill, or matte. Deliver a PNG with real transparent alpha outside the subject and clean natural hair detail.
+  images/scallop-kohlrabi-lovage.webp was made with ImageGen using this prompt.
+  Photorealistic editorial fine dining photograph for the hero of a luxury chef portfolio. Landscape 4:3. Oblique overhead close-up of a single dramatic dark charcoal handmade ceramic plate with broad irregular concentric ridges, on a nearly black slate table. At the center, a small precise plated composition of a beautifully seared scallop, a fold of translucent pale green kohlrabi, fresh nasturtium leaves, tiny bronze herbs, a vivid emerald lovage oil and pale beurre blanc. Plate center at 51% x and 56% y, the wide round rim fills most of the frame and touches the lower edge. Entire small plated course clearly visible in center, light from upper right reveals coarse stone textures and droplets. Intimate dark photographic chiaroscuro, black-green shadows, muted smoky mint and warm highlights, analog grain, high-end independent food magazine photography. Authentic edible ingredients. Only the dish and slate table, no person, text, styling props, borders or watermarks.
+  -->
+</body>
+</html>
